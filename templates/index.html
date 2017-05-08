@@ -5,10 +5,15 @@
     <title>文件上传</title>
 </head>
 <body>
-	<form action="/upload" method="post" enctype="multipart/form-data">
-		<input type="file" name="file">
-		<input type="submit" value="上传">
-	</form>
+<form method="POST" enctype="multipart/form-data">
+     {{ form.hidden_tag() }} <!--这个渲染全部隐藏的字段-->
+     <input type="submit" value="上传">
+     {{ form.photo }}
+     {% for error in form.photo.errors %}
+         <span style="color: red;">{{ error }}</span>
+     {% endfor %}
+     {{ form.submit }}
+</form>
 	{% with messages = get_flashed_messages(with_categories=true) %}
  		{% for category, message in messages %}
  		{{category}}: {{ message }}

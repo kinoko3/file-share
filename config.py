@@ -1,3 +1,3 @@
 import os
 SECRET_KEY = os.urandom(8)
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+UPLOAD_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'file/')
